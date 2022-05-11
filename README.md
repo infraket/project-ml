@@ -26,13 +26,11 @@ This package allows you to train model for detecting the presence of heart disea
 ```sh
 poetry install --no-dev
 ```
-
 5. read  file and see head
 ```sh
 poetry run train -d data/train.csv
 ```
-
-6.read file, view head and generate profiling.html to the folder with the project:
+6. read file, view head and generate profiling.html to the folder with the project:
 ```sh
 poetry run train -eda True
 ```

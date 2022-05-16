@@ -38,16 +38,16 @@ poetry run train -eda True
 ```sh
 poetry run train -d data/train.csv -eda True
 ```
-8.Trains a model and saves it to a file:
+8. Trains a model and saves it to a file:
 
 ```sh
 poetry run train -d ./data/train.csv -s data/model.joblib
 ```
-9.Trains a model and saves it to a file LogisticRegression :
+9. Trains a model and saves it to a file LogisticRegression :
 ```sh
 poetry run train -d ./data/train.csv -s data/model.joblib --model-type True
 ```
-10.Trains a model and saves it to a file Random Forest Classifier :
+10. Trains a model and saves it to a file Random Forest Classifier :
 ```sh
 poetry run train -d ./data/train.csv -s data/model.joblib --model-type False
 ```

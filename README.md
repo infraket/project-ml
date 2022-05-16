@@ -57,5 +57,8 @@ poetry run train -d ./data/train.csv -s data/model.joblib --model-type False
 poetry run mlflow ui
 ```
  ![image](https://user-images.githubusercontent.com/55091681/168618437-cfe5c53c-b27f-489d-b72f-1ec455eece7f.png)
+ ![image](https://user-images.githubusercontent.com/55091681/168633641-ce5e4c50-43f3-4a4b-bf00-5e95a149784d.png)
+
+ 
 
 

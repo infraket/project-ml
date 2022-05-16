@@ -39,5 +39,9 @@ poetry run train -eda True
 poetry run train -d data/train.csv -eda True
 ```
 
- 
+```sh
+poetry run mlflow ui
+```
+ ![image](https://user-images.githubusercontent.com/55091681/168618437-cfe5c53c-b27f-489d-b72f-1ec455eece7f.png)
+
 

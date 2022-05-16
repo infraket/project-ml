@@ -3,32 +3,35 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.feature_selection import SelectFromModel
+from sklearn.ensemble import RandomForestClassifier
 
 
 def create_pipeline(
-        use_scaler: bool, max_iter: int, log_reg_class: bool, pca_scaler: bool, penalty: str, n_neighbors: int,
+        use_scaler: bool, max_iter: int, logreg_c: float, random_state: int,
 ) -> Pipeline:
     pipeline_steps = []
 
-    if log_reg_class:
+    if use_scaler:
         pipeline_steps.append(("scaler", StandardScaler()))
+    pipeline_steps.append(
+        (
+            "classifier",
+            LogisticRegression(
+                random_state=random_state, max_iter=max_iter, C=logreg_c
+            ),
+        )
+    )
+    return Pipeline(steps=pipeline_steps)
+
+
+def create_pipeline_rf(random_f: bool, ) -> Pipeline:
+    pipeline_steps = []
+    if random_f:
         pipeline_steps.append(
             (
                 "classifier",
-                LogisticRegression(
-                    max_iter=max_iter, penalty=penalty)
-
+                RandomForestClassifier(),
             )
         )
-    if use_scaler:
-        if pca_scaler:
-            pipeline_steps.append(("scaler", PCA()))
-        else:
-            pipeline_steps.append(("scaler", StandardScaler()))
-
-    else:
-        pipeline_steps.append(
-            ("classifier", KNeighborsClassifier(n_neighbors=n_neighbors))
-        )
-
-    return Pipeline(steps=pipeline_steps)
+        return Pipeline(steps=pipeline_steps)
